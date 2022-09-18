@@ -54,19 +54,18 @@ export class CardsComponent implements OnInit {
     .getDailyExchangeRate(this.exchangeResponse)
     .subscribe(
       (response) => {
-        this.coinResponse = response.data.slice(0,29);
+        this.coinResponse = response.data.slice(0,30);
           if(this.coinResponse.length > 0){
-            this.coinResponse.forEach((value, idx, arr)=> {
-              this.closeDiff = value.close - arr[idx+1].close
-
+            this.coinResponse.forEach((value, idx, arrCoin)=> {
+              this.closeDiff = value.close - arrCoin[idx+1].close
               if(this.closeDiff > 0){
-                this.closeDiff = ((value.close - arr[idx+1].close)/arr[idx+1].close)*100
+                this.closeDiff = ((value.close - arrCoin[idx+1].close) / arrCoin[idx+1].close) * 100
               }else if (this.closeDiff < 0){
-                this.closeDiff = ((arr[idx+1].close - value.close)/value.close)*-100
+                this.closeDiff = ((arrCoin[idx+1].close - value.close) / value.close) * -100
               } else {
                 this.closeDiff = 0;
               }
-              value.diff = Number(this.closeDiff.toFixed(4));
+              value.diff = Number(this.closeDiff);
             })
           }
       },

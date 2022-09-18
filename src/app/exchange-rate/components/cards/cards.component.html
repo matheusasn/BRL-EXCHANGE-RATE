@@ -34,20 +34,20 @@
               <section class="section-exchange-values w-100">
                 <div class="row">
                   <div class="col-auto d-flex">
-                    <h6 class="mb-0">OPEN: </h6><span>R$ {{ value.open }}</span>
+                    <h6 class="mb-0">OPEN: </h6><span>R$ {{ value.open | number:'.4' }}</span>
                   </div>
                   <div class="col-auto">
-                    <h6 class="mb-0">High: <span>R$ {{ value.high }}</span></h6>
+                    <h6 class="mb-0">High: <span>R$ {{ value.high | number:'.4' }}</span></h6>
                   </div>
                 </div>
               </section>
               <section class="section-exchange-values w-100">
                 <div class="row">
                   <div class="col-auto d-flex">
-                    <h6 class="mb-0">Close: </h6><span>R$ {{ value.close }}</span>
+                    <h6 class="mb-0">Close: </h6><span>R$ {{ value.close | number:'.4' }}</span>
                   </div>
                   <div class="col-auto">
-                    <h6 class="mb-0">LOW: <span>R$ {{ value.low }}</span></h6>
+                    <h6 class="mb-0">LOW: <span>R$ {{ value.low | number:'.4' }}</span></h6>
                   </div>
                 </div>
               </section>
@@ -56,9 +56,8 @@
                   <div class="col-auto d-flex">
                     <h6 class="mb-0">close diff (%): </h6>
                     <span
-                      class="mx-1"
                       [ngClass]="{'text-success': value.diff > 0, 'text-danger': value.diff < 0}"
-                      >{{ value.diff }}%
+                      >{{ value.diff | number:'.4' }}%
                       <mat-icon *ngIf="value.diff > 0">expand_less</mat-icon>
                       <mat-icon *ngIf="value.diff < 0">expand_more</mat-icon>
                     </span>
