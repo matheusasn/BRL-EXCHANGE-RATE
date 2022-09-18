@@ -1,0 +1,43 @@
+<div class="alert alert-dange"
+  role="alert"
+  *ngIf="isError"
+>
+  Erro ao obter dados. Tente novamente.
+</div>
+<div class="alert alert-danger" role="alert" *ngIf="isError">
+  Erro obtendo dados. Tente novamente.
+</div>
+<div class="container d-flex justify-content-center flex-column p-4 container-form-style">
+  <div class="d-flex justify-content-center mb-3"><h1>BRL Exchange Rate</h1></div>
+  <section>
+    <form #exchangeForm="ngForm">
+      <div class="form-floating mb-3 input-exchange-style">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          placeholder="Enter the currency code"
+          name="symbol"
+          [(ngModel)]="converterExchange.symbol"
+          appSymbol
+          required
+          >
+        <label for="floatingInput">Enter the currency code</label>
+      </div>
+      <button
+        type="button"
+        class="btn bnt-exchange-result"
+        (click)="exchange()"
+        [disabled]="!exchangeForm.form.valid"
+        >
+        Exchange result
+      </button>
+    </form>
+  </section>
+</div>
+
+<app-cards
+  [id]="'cardExchange'"
+  [exchangeResponse]="exchangeResponse"
+  [display]="display"
+></app-cards>

@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+:root {
+  --main-bg-color: #07B0FB;
+  --bs-accordion-icon-close: url("./assets/IconAdd.png");
+  --bs-accordion-icon-open: url("./assets/IconOpen.png")
+}
+
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: 'Roboto';
+  font-style: normal;
+}

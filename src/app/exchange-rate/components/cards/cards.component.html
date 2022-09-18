@@ -1,0 +1,75 @@
+
+
+<div *ngIf="display" class="container align-items-center p-4 container-exchange-rates">
+  <!--current day exchange card-->
+  <div class="card style-card-coin-exchange">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <h5 class="card-title">Exchange rate now</h5>
+          <h6 class="card-subtitle mb-2">{{ getDataExchange | dataBr }}</h6>
+        </div>
+        <div class="col-auto">
+          <h1 class="coin">{{ getSymbolExchange }}/BRL</h1>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center p-4 body-coin">
+        <h1>R$ {{ getExchangeRateDay }}</h1>
+      </div>
+    </div>
+  </div>
+  <!--Accordion exchange rate for the last 30 days-->
+  <div class="accordion accordion-flush mb-5" id="accordion-style-cards">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button (click)="getListExchangeRate()" class="accordion-button accordion-item collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          <div class="col title-accordion-style">LAST 30 DAYS</div>
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <div class="card style-card-exchange m-2" [id]="id" *ngFor="let value of coinResponse">
+            <div class="card-body card-exchange-style" >
+              <h5 class="card-title">{{ value.date | date: 'dd/MM/yyyy' }}</h5>
+              <section class="section-exchange-values w-100">
+                <div class="row">
+                  <div class="col-auto d-flex">
+                    <h6 class="mb-0">OPEN: </h6><span>R$ {{ value.open }}</span>
+                  </div>
+                  <div class="col-auto">
+                    <h6 class="mb-0">High: <span>R$ {{ value.high }}</span></h6>
+                  </div>
+                </div>
+              </section>
+              <section class="section-exchange-values w-100">
+                <div class="row">
+                  <div class="col-auto d-flex">
+                    <h6 class="mb-0">Close: </h6><span>R$ {{ value.close }}</span>
+                  </div>
+                  <div class="col-auto">
+                    <h6 class="mb-0">LOW: <span>R$ {{ value.low }}</span></h6>
+                  </div>
+                </div>
+              </section>
+              <section class="section-exchange-values w-100">
+                <div class="row">
+                  <div class="col-auto d-flex">
+                    <h6 class="mb-0">close diff (%): </h6>
+                    <span
+                      class="mx-1"
+                      [ngClass]="{'text-success': value.diff > 0, 'text-danger': value.diff < 0}"
+                      >{{ value.diff }}%
+                      <mat-icon *ngIf="value.diff > 0">expand_less</mat-icon>
+                      <mat-icon *ngIf="value.diff < 0">expand_more</mat-icon>
+                    </span>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

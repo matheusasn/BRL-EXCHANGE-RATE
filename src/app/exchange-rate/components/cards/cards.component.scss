@@ -1,0 +1,132 @@
+.container-exchange-rates {
+
+  // border-top: 1px solid red;
+  border-top: 1px solid #E5E5E5;
+
+  .style-card-coin-exchange{
+
+    border: none;
+
+    .card-body{
+      padding: 0;
+    }
+
+    .body-coin{
+      background-color: rgba(7, 176, 251, 0.1);
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      color: var(--main-bg-color)
+    }
+
+    .coin {
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    h5 {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 28px;
+      color: #262626;
+    }
+
+    h6 {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      color: #333333;
+    }
+  }
+}
+
+.title-accordion-style {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+}
+
+.accordion-button::after{
+  //display: none;
+  background-image: var(--bs-accordion-icon-close) !important;
+  transition-property: none;
+  transition: width 2s;
+}
+
+.accordion-button:not(.collapsed)::after{
+  background-image: var(--bs-accordion-icon-open) !important;
+  background-repeat: no-repeat;
+  transition: width 2s;
+}
+
+.accordion-button:not(.collapsed){
+  background-color: transparent;
+  color: var(--main-bg-color);
+  box-shadow: none;
+}
+
+.accordion-button:focus{
+  z-index: 3;
+  border-color: none;
+  outline: 0;
+  box-shadow: none;
+}
+
+.accordion-button.collapsed {
+  border-bottom: 2px solid var(--main-bg-color);
+
+}
+
+.accordion-body{
+  background-color: #F4F4F4;
+  border-bottom: 2px solid var(--main-bg-color);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.style-card-exchange {
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 0px;
+}
+
+.card-exchange-style{
+  h5 {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    color: #07B0FB;
+  }
+}
+
+.section-exchange-values {
+
+  justify-content: start;
+  display: flex;
+  align-items: center;
+
+  h6 {
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 14px;
+    color: #3F3F3F;
+    display: flex;
+    align-items: center;
+  }
+
+  span {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #3F3F3F;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+}
