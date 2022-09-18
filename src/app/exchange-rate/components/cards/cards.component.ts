@@ -56,18 +56,21 @@ export class CardsComponent implements OnInit {
       (response) => {
         this.coinResponse = response.data.slice(0,30);
           if(this.coinResponse.length > 0){
-            this.coinResponse.forEach((value, idx, arrCoin)=> {
-              this.closeDiff = value.close - arrCoin[idx+1].close
-              if(this.closeDiff > 0){
-                this.closeDiff = ((value.close - arrCoin[idx+1].close) / arrCoin[idx+1].close) * 100
-              }else if (this.closeDiff < 0){
-                this.closeDiff = ((arrCoin[idx+1].close - value.close) / value.close) * -100
-              } else {
-                this.closeDiff = 0;
+            this.coinResponse.forEach((value, idx, arrCoin) => {
+              if(arrCoin[idx+1] !== undefined){
+                this.closeDiff = value.close - arrCoin[idx+1].close
+                if(this.closeDiff > 0){
+                  this.closeDiff = ((value.close - arrCoin[idx+1].close) / arrCoin[idx+1].close) * 100
+                }else if (this.closeDiff < 0){
+                  this.closeDiff = ((arrCoin[idx+1].close - value.close) / value.close) * -100
+                } else {
+                  this.closeDiff = 0;
+                }
+                value.diff = Number(this.closeDiff);
               }
-              value.diff = Number(this.closeDiff);
             })
           }
+        this.coinResponse = this.coinResponse.slice(0,29);
       },
       (error) => this.isError = true
     );
