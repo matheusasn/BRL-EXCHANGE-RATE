@@ -1,6 +1,11 @@
 <body>
-  <div class="alert alert-danger" role="alert" *ngIf="isError">
-    Erro obtendo dados. Tente novamente.
+  <div class="container-sm p-3">
+    <div class="alert alert-warning" role="alert" *ngIf="isInvalid">
+      Invalid currency. Try again!
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="isError">
+      Could not connect to api. Try again later!
+    </div>
   </div>
   <div class="container d-flex justify-content-center flex-column p-4 container-form-style">
     <div class="d-flex justify-content-center mb-3"><h1>BRL Exchange Rate</h1></div>
@@ -17,7 +22,7 @@
             appSymbol
             required
             >
-          <label for="floatingInput">Enter the currency code</label>
+          <label for="floatingInput" class="form-label">Enter the currency code</label>
         </div>
         <button
           type="button"

@@ -26,7 +26,12 @@
 
 .form-control:focus {
   border-bottom: 2px solid var(--main-bg-color);
+
+  + .form-label {
+    color: var(--main-bg-color) !important;
+  }
 }
+
 
 .input-exchange-style {
 

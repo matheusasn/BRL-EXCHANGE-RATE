@@ -13,6 +13,7 @@ export class ConverterComponent implements OnInit {
 
   converterExchange: Exchange;
   isError: boolean;
+  isInvalid: boolean;
   display: boolean;
   exchangeResponse: ExchangeResponse;
 
@@ -30,6 +31,7 @@ export class ConverterComponent implements OnInit {
   init(): void {
     this.converterExchange = new Exchange('', '');
     this.isError = false;
+    this.isInvalid = false;
     this.display = false;
   }
 
@@ -40,9 +42,18 @@ export class ConverterComponent implements OnInit {
       .subscribe(
         (response) => {
           this.exchangeResponse = response
-          this.display = true
+          if(response.success){
+            this.display = true
+            this.isInvalid = false
+          }else{
+            this.isInvalid = true
+            this.display = false
+          }
         },
-        (error) => this.isError = true
+        (error) => {
+          this.isError = true
+          this.display = false
+        }
       );
     }
   }
