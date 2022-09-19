@@ -1,6 +1,4 @@
 .container-exchange-rates {
-
-  // border-top: 1px solid red;
   border-top: 1px solid #E5E5E5;
 
   .style-card-coin-exchange{
@@ -50,35 +48,37 @@
   color: #262626;
 }
 
-.accordion-button::after{
-  //display: none;
-  background-image: var(--bs-accordion-icon-close) !important;
-  transition-property: none;
-  transition: width 2s;
-}
+#flush-headingOne-exchange{
 
-.accordion-button:not(.collapsed)::after{
-  background-image: var(--bs-accordion-icon-open) !important;
-  background-repeat: no-repeat;
-  transition: width 2s;
-}
+  .accordion-button::after{
+    background-image: var(--bs-accordion-icon-close) !important;
+    transition-property: none;
+    transition: width 2s;
+  }
 
-.accordion-button:not(.collapsed){
-  background-color: transparent;
-  color: var(--main-bg-color);
-  box-shadow: none;
-}
+  .accordion-button:not(.collapsed)::after{
+    background-image: var(--bs-accordion-icon-open) !important;
+    background-repeat: no-repeat;
+    transition: width 2s;
+  }
 
-.accordion-button:focus{
-  z-index: 3;
-  border-color: none;
-  outline: 0;
-  box-shadow: none;
-}
+  .accordion-button:not(.collapsed){
+    background-color: transparent;
+    color: var(--main-bg-color);
+    box-shadow: none;
+  }
 
-.accordion-button.collapsed {
-  border-bottom: 2px solid var(--main-bg-color);
+  .accordion-button:focus{
+    z-index: 3;
+    border-color: none;
+    outline: 0;
+    box-shadow: none;
+  }
 
+  .accordion-button.collapsed {
+    border-bottom: 2px solid var(--main-bg-color);
+
+  }
 }
 
 .accordion-body{
